@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>超学人格测试 | 其实，每个人都是超哥</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 预加载所有背景 SVG，确保轮播不卡顿 -->
+  <link rel="preload" as="image" href="images/红红火火.svg">
+  <link rel="preload" as="image" href="images/翩翩起舞.svg">
+  <link rel="preload" as="image" href="images/酷酷.svg">
+  <link rel="preload" as="image" href="images/害羞.svg">
+  <link rel="preload" as="image" href="images/鄙视.svg">
+  <link rel="preload" as="image" href="images/猪猪.svg">
+  <link rel="preload" as="image" href="images/紫色.svg">
+</head>
+
+<body>
+  <div class="container" id="app">
+    <div id="welcomeScreen" class="welcome">
+      <div class="badge-icon">🔥|💃|😎|🌸|🗿|🐷|💜</div>
+      <h1>超学人格测试</h1>
+      <div class="sub">16道情景题 · 看看你是什么超</div>
+      <p style="margin-bottom: 2rem; color: #5b4b7c;">✨ 灵感来源 · 超哥宇宙 ✨</p>
+      <button class="btn" id="startBtn">开始测试</button>
+      <footer style="margin-top: 2rem;">由 何欢何来 制作（感谢deepseek，D门）</footer>
+    </div>
+
+    <div id="quizScreen" style="display: none;">
+      <div class="quiz-panel">
+        <div class="progress-area">
+          <div class="progress-bar-bg">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="q-counter"><span id="qIndex">1</span> / <span id="qTotal">16</span></div>
+        </div>
+        <div class="question-text" id="questionText"></div>
+        <div class="options-grid" id="optionsContainer"></div>
+        <div class="nav-buttons">
+          <button class="btn-outline btn" id="prevBtn">← 上一题</button>
+          <button class="btn" id="nextBtn">下一题 →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultScreen" style="display: none;">
+      <div class="result-panel">
+        <!-- 替换 Font Awesome 图表图标为内联 SVG -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
+          <path d="M3 17V20H21V17M4 14L7 10L11 14L19 6" stroke="#f5a03c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="result-type" id="resultTypeName"></div>
+
+        <div class="result-flex-container">
+          <div class="result-card" id="resultDescCard"></div>
+          <div class="result-image-wrapper">
+            <img id="resultImage" src="" alt="人格代表图" class="result-image">
+          </div>
+        </div>
+
+        <button class="btn" id="restartBtn" style="margin-top: 1.5rem;">重新测试</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+  <script src="quadrant-viz.js"></script>
+</body>
+
+</html>
